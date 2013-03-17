@@ -1,0 +1,17 @@
+## -*- coding: utf-8 -*-
+
+<%inherit file="top.html" />
+<%block name="title">${post['title']}</%block>
+
+<article>
+<div>
+    <h1><a href="${post['link']}">${post['title']}</a> - </h1>
+
+	${post['html']}
+
+	<p class="meta">
+		Published: ${post['date']}
+		<a href="${post['link']}" class="permlink" >Permalink</a>
+	</p>	
+</div>	
+</article>

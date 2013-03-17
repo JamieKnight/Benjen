@@ -1,0 +1,35 @@
+## -*- coding: utf-8 -*-
+
+<%inherit file="top.html" />
+<%block name="title">
+	Home
+	% if pages != 1:
+		[${page}/${pages}]
+	% endif
+</%block>
+
+% for post in posts:
+	<article>
+<div>
+    <h1><a href="${post['link']}">${post['title']}</a> - </h1>
+
+	${post['html']}
+
+	<p class="meta">
+		Published: ${post['date']}
+		<a href="${post['link']}" class="permlink" >Permalink</a>
+	</p>	
+</div>	
+</article>
+% endfor
+% if prev or next:
+	<div class="grid_8 pagenav alpha">
+		% if prev:
+			<a href="${prev}">Previous</a> |
+		% endif
+		Page ${page} of ${pages}
+		% if next:
+			| <a href="${next}">Next</a>
+		% endif
+	</div>
+% endif
